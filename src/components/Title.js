@@ -8,7 +8,7 @@ function Title() {
         <h1>CardStamp</h1>
         </div>
         <div className="Title-Subtitle">
-        <h2>Send a virtual card signed by many!</h2>
+        <h2>Send a personalized virtual card!</h2>
         </div>
         <div>
         <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/">List</NavLink>
