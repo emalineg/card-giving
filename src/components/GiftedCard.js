@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './GiftedCard.css';
 
 function GiftedCard () {
   const { urlSlug } = useParams(); 
@@ -29,19 +30,22 @@ function GiftedCard () {
 
 
   return (
-    <div>
-      <img src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.title} />
-      <h1>{card.title}</h1>
-      <p>{card.message}</p>
+    <div className="card-container">
+      <img className="card-image" src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.title} />
+      <h1 className="card-title">{card.title}</h1>
+      <p className="card-message">{card.message}</p>
       {/* Optionally display comments if present */}
-      {/* {card.comments && (
-        <ul>
+      {/* 
+      {card.comments && (
+        <ul className="card-comments">
           {card.comments.map((comment, index) => (
-            <li key={index}>{comment}</li>
+            <li key={index} className="comment">{comment}</li>
           ))}
         </ul>
-      )} */}
-    </div>
+      )}
+      */}
+   </div>
+
   );
 }
 

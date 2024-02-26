@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import GiftedCard from './GiftedCard';
+import './SpecificCardDetails.css';
 
 function SpecificCardDetails(props) {
   const { id } = useParams(); 
@@ -63,7 +64,7 @@ function SpecificCardDetails(props) {
   }
 
   return (
-    <div>
+    <div className="SpecificCardDetails">
       <div>
         <img src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.name} />
       </div>
@@ -72,18 +73,25 @@ function SpecificCardDetails(props) {
         <h1>{card.name}</h1>
       </div>
 
-      <div>
+      <div class="form-container">
         <h2>Create a card</h2>
-        <form onSubmit={createCard}>
-          <label htmlFor="title">Title:</label>
-          <input type="text" id="title" name="title" required />
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <label htmlFor="url">Desired URL Slug:</label>
-          <input type="text" id="url" name="url" required />
-          <button type="submit">Create</button>
+        <form onSubmit={createCard} class="create-card-form">
+          <div class="form-group">
+            <label htmlFor="title">Title:</label>
+            <input type="text" id="title" name="title" required />
+          </div>
+          <div class="form-group">
+            <label htmlFor="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <div class="form-group">
+            <label htmlFor="url">Desired URL Slug:</label>
+            <input type="text" id="url" name="url" required />
+          </div>
+          <button type="submit" class="submit-btn">Create</button>
         </form>
       </div>
+
 
       {cardCreated && (
         <>

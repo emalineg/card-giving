@@ -1,0 +1,44 @@
+.card-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  }
+  
+  .card-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* Adjust depending on your preference */
+    border-radius: 8px;
+  }
+  
+  .card-title {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .card-message {
+    margin-top: 10px;
+    text-align: justify;
+    color: #666;
+  }
+  
+  /* Uncomment and use if you decide to display comments */
+  /*
+  .card-comments {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .comment {
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  */
+  
