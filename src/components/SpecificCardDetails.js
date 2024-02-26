@@ -1,38 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import data from '../specificcard-data.json';
 import GiftedCard from './GiftedCard';
 
 function SpecificCardDetails(props) {
-  const params = useParams();
-  const { id } = params; 
-  const index = parseInt(id, 10); 
-  const { image, name } = data[index]; 
+  const { id } = useParams(); 
+  const cardId = parseInt(id, 10); 
+  const [card, setCard] = useState(null); 
   const [cardCreated, setCardCreated] = useState(false);
   const [cardData, setCardData] = useState({});
   const [cardUrl, setCardUrl] = useState(''); 
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/cards/${cardId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        setCard(data);
+      })
+      .catch(error => {
+        console.error('Error fetching card:', error);
+      });
+  }, [cardId]); 
 
   const createCard = (e) => {
     e.preventDefault();
     const title = e.target.title.value;
     const message = e.target.message.value;
     const urlSlug = e.target.url.value;
-
-    const path = `/card/${urlSlug}`; 
-
-    setCardData({ title, message, urlSlug, image: `${process.env.PUBLIC_URL}/${image}` });
-    setCardUrl(path); 
-    setCardCreated(true);
+  
+    const newCardData = { title, message, urlSlug, image: card.image };
+  
+    fetch('http://localhost:3001/api/gifted-cards', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newCardData),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Success:', data);
+      setCardData(data); 
+      setCardUrl(`/gifted-card/${urlSlug}`); 
+      setCardCreated(true);
+    })
+    .catch(error => {
+      console.error('Error creating card:', error);
+    });
   };
+
+  if (!card) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
       <div>
-        <img src={`${process.env.PUBLIC_URL}/${image}`} alt={name} />
+        <img src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.name} />
       </div>
 
       <div>
-        <h1>{name}</h1>
+        <h1>{card.name}</h1>
       </div>
 
       <div>

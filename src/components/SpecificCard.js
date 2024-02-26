@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
 function SpecificCard(props) {
-    const { name, image, id } = props
+    const { id, name, image } = props
   return (
     <div>
       <Link to={`/specific-card/${id}`}>

@@ -1,19 +1,38 @@
 const pool = require('./db-setup');
 
 async function createTable() {
-  const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS cards (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      image VARCHAR(255) NOT NULL
-    );
-  `;
+  const client = await pool.connect();
 
   try {
-    await pool.query(createTableQuery);
-    console.log('Table "cards" has been created successfully.');
-  } catch (err) {
-    console.error('Error creating table "cards":', err);
+    await client.query('BEGIN');
+
+    const createCardsTableQuery = `
+      CREATE TABLE IF NOT EXISTS cards (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        image VARCHAR(255) NOT NULL
+      );
+    `;
+    await client.query(createCardsTableQuery);
+
+    const createGiftedCardsTableQuery = `
+      CREATE TABLE IF NOT EXISTS giftedCards (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL, 
+        url_slug VARCHAR(255) NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        comments TEXT[]
+      );
+    `;
+    await client.query(createGiftedCardsTableQuery);
+
+    await client.query('COMMIT');
+  } catch (e) {
+    await client.query('ROLLBACK');
+    throw e;
+  } finally {
+    client.release();
   }
 }
 
