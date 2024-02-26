@@ -3,12 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import CardsList from './components/CardsList';
+import About from './components/About';
+import SpecificCard from './components/SpecificCard';
+import GiftedCard from './components/GiftedCard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Router>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route path="/" element={<CardsList />} />
+        <Route path="about" element={<About />} />
+        <Route path="/specific-card/:id" element={<SpecificCard />} />
+        <Route path="/card/:id" element={<GiftedCard/>} />
+      </Route>
+    </Routes>
+  </Router>,
+  //document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
