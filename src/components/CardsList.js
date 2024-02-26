@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpecificCard from "./SpecificCard";
-
+import "./CardsList.css";
 function CardsList() {
   const [cards, setCards] = useState([]);
 
@@ -31,7 +31,7 @@ function CardsList() {
   ));
 
   return (
-    <div>
+    <div className="CardsList">
       {cardsList}
     </div>
   );

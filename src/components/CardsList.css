@@ -1,0 +1,11 @@
+.CardsList {
+    width: calc(100% - 80px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  
