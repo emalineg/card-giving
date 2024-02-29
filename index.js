@@ -7,11 +7,22 @@ const path = require('path');
 dotenv.config();
 
 const cardRoutes = require('./server/routes/routes'); 
+
 const allowedOrigins = ['http://localhost:3000', 'https://card-giving.vercel.app'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) > -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 
 const app = express();
 
-app.use(cors({ origin: allowedOrigins }));
+app.use(cors({ origin: corsOptions }));
 
 app.use(express.json()); 
 
