@@ -8,7 +8,7 @@ function GiftedCard () {
 
   useEffect(() => {
     
-    fetch(`http://localhost:3001/api/gifted-cards/${urlSlug}`)
+    fetch(`https://octopus-app-xwqtk.ondigitalocean.app/api/gifted-cards/${urlSlug}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

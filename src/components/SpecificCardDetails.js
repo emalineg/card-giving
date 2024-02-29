@@ -12,7 +12,7 @@ function SpecificCardDetails(props) {
   const [cardUrl, setCardUrl] = useState(''); 
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/cards/${cardId}`)
+    fetch(`https://octopus-app-xwqtk.ondigitalocean.app/api/cards/${cardId}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -35,7 +35,7 @@ function SpecificCardDetails(props) {
   
     const newCardData = { title, message, urlSlug, image: card.image };
   
-    fetch('http://localhost:3001/api/gifted-cards', {
+    fetch('https://octopus-app-xwqtk.ondigitalocean.app/api/gifted-cards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

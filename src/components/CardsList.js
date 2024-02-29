@@ -5,7 +5,7 @@ function CardsList() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/cards')
+    fetch('https://octopus-app-xwqtk.ondigitalocean.app/api/cards')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
