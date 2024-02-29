@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './GiftedCard.css';
 
 function GiftedCard () {
@@ -30,21 +30,17 @@ function GiftedCard () {
 
 
   return (
+    <>
     <div className="card-container">
       <img className="card-image" src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.title} />
       <h1 className="card-title">{card.title}</h1>
       <p className="card-message">{card.message}</p>
-      {/* Optionally display comments if present */}
-      {/* 
-      {card.comments && (
-        <ul className="card-comments">
-          {card.comments.map((comment, index) => (
-            <li key={index} className="comment">{comment}</li>
-          ))}
-        </ul>
-      )}
-      */}
-   </div>
+    </div>
+    <div>
+      <Link to="/">Send a personalized card!</Link>
+    </div>
+    </>
+    
 
   );
 }

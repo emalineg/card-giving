@@ -1,15 +1,18 @@
+import React from 'react';
 import './App.css';
 import Title from './components/Title';
 import Footer from './components/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const hideTitleOnRoutes = ['/components/GiftedCard.js'];
 
   return (
     <div className="App">
-     <Title/>
-     <Outlet />
-     <Footer/> 
+      {!hideTitleOnRoutes.includes(location.pathname) && <Title />}
+      <Outlet />
+      <Footer /> 
     </div>
   );
 }
