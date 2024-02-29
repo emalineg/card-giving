@@ -1,9 +1,5 @@
-# CardStamp
+# CardStamp Front End
 
-## How to locally host:
+[Backend is located](https://github.com/emalineg/card-giving-backend)
 
-### `npm start ` to run the client
-
-### `node server/index.js` to run the server
-
-### navigate to `http://localhost:3000/`
+Deployed at https://cardstamp.vercel.app
