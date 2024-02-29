@@ -95,7 +95,7 @@ function SpecificCardDetails(props) {
 
       {cardCreated && (
         <>
-          <p>Here is your card URL: <Link to={cardUrl}>https://cardstamp.vercel.app/#/{cardUrl}</Link></p>
+          <p>Here is your card URL: <Link to={cardUrl}>https://cardstamp.vercel.app/#{cardUrl}</Link></p>
           <GiftedCard {...cardData} />
         </>
       )}
