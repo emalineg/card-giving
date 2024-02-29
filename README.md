@@ -1,5 +1,7 @@
 # CardStamp Front End
 
+Hosted on Vercel
+
 [Backend is located](https://github.com/emalineg/card-giving-backend)
 
-Deployed at https://cardstamp.vercel.app
+Website: https://cardstamp.vercel.app
