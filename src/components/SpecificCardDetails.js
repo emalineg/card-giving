@@ -59,6 +59,10 @@ function SpecificCardDetails(props) {
     });
   };
 
+  if (!card) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="SpecificCardDetails">
       <div>
