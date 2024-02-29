@@ -11,7 +11,7 @@ function Title() {
         <h2>Send a personalized virtual card!</h2>
         </div>
         <div>
-        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/">List</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/">Cards</NavLink>
         <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/about">About</NavLink>
         </div>
       </div>
