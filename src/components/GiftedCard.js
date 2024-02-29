@@ -36,7 +36,7 @@ function GiftedCard () {
       <h1 className="card-title">{card.title}</h1>
       <p className="card-message">{card.message}</p>
     </div>
-    <div>
+    <div classname="hp-link">
       <Link to="/">Send a personalized card!</Link>
     </div>
     </>

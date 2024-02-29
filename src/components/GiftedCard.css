@@ -25,6 +25,13 @@
     text-align: justify;
     color: #666;
   }
+
+  .hp-link {
+    font-style: italic;
+    color:#333;
+    padding-top: 40px;
+    padding-bottom: 10px;
+  }
   
   /* Uncomment and use if you decide to display comments */
   /*
