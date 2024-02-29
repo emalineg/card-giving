@@ -7,17 +7,15 @@ const path = require('path');
 dotenv.config();
 
 const cardRoutes = require('./server/routes/routes'); 
+const allowedOrigins = ['http://localhost:3000', 'https://card-giving.vercel.app'];
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-}));
+app.use(cors({ origin: allowedOrigins }));
 
 app.use(express.json()); 
 
 app.use('/api', cardRoutes);
-
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../client/build'));
@@ -25,7 +23,6 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
     });
 }
-
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
