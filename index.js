@@ -6,7 +6,7 @@ const path = require('path');
 
 dotenv.config();
 
-const cardRoutes = require('./routes/routes'); 
+const cardRoutes = require('./server/routes/routes'); 
 
 const app = express();
 
