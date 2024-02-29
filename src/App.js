@@ -6,11 +6,13 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
   const location = useLocation();
-  const hideTitleOnRoutes = ['/components/GiftedCard.js'];
+  const hideTitleOnRoutes = ['/gifted-card/'];
+  const shouldHideTitle = hideTitleOnRoutes.some(route => location.pathname.includes(route));
+
 
   return (
     <div className="App">
-      {!hideTitleOnRoutes.includes(location.pathname) && <Title />}
+      {!shouldHideTitle && <Title />}
       <Outlet />
       <Footer /> 
     </div>
