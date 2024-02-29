@@ -28,12 +28,15 @@
   }
 
   .hp-link {
-    font-style: italic;
-    color:#333;
+
     padding-top: 40px;
     padding-bottom: 10px;
   }
-  
+  .hp-link p {
+    font-style: italic;
+    color:#7a16a1;
+  }
+
   /* Uncomment and use if you decide to display comments */
   /*
   .card-comments {
