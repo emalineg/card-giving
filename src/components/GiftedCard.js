@@ -30,11 +30,17 @@ function GiftedCard () {
 
 
   return (
+    <>
+    <div className="space">
+    </div>
     <div className="card-container">
       <img className="card-image" src={`${process.env.PUBLIC_URL}/${card.image}`} alt={card.title} />
       <h1 className="card-title">{card.title}</h1>
       <p className="card-message">{card.message}</p>
     </div>
+    <div className="space">
+    </div>
+    </>
   );
 }
 
