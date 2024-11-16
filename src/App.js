@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Title from './components/Title';
-import Footer from './components/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
     <div className="App">
       {!shouldHideTitle && <Title />}
       <Outlet />
-      <Footer /> 
     </div>
   );
 }

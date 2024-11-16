@@ -1,67 +1,167 @@
 .SpecificCardDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  position: relative;
+  top: 1rem;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card-image, .form-container {
+  width: 100%;
+  max-width: 500px;
+  justify-self: center;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  /* margin-bottom: 20px; */
+  text-align: center;
+}
+
+.create-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  background-color: #c40b0b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+}
+
+.submit-btn:hover {
+  background-color: #960f0f;
+
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.card-created-info {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .SpecificCardDetails {
+    padding: 20px 10px;
   }
 
-.SpecificCardDetails img {
-    width: 600px;
-    height: 500px;
-    margin-bottom: 20px;
+  .form-container h2 {
+    font-size: 1.5rem;
   }
-  
-  .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stamp {
+  height: 100px;
+  width: 100px;
+  right: 200px;
+  top: 20px;
+  border-radius: 5px;
+  position: relative;
+  background-color: #b84545;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+      opacity: 0;
   }
-  
-  .create-card-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  10% {
+      opacity: .50;
+      transform-origin: 50% 50%;
+      transform: rotate(-2deg) scale(5);
+      transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
   }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  100% {
+      opacity: 1;
+      transform: rotate(-15deg) scale(1);
   }
-  
-  .form-group label {
-    font-weight: bold;
+}
+
+@keyframes pulse {
+  0% {
+      opacity: 0;
   }
-  
-  .form-group input[type="text"],
-  .form-group textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+  10% {
+      opacity: .50;
+      transform-origin: 50% 50%;
+      transform: rotate(-2deg) scale(5);
+      transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
   }
-  
-  .form-group textarea {
-    resize: vertical;
+  100% {
+      opacity: 1;
+      transform: rotate(-15deg) scale(1);
   }
-  
-  .submit-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+
+
+
