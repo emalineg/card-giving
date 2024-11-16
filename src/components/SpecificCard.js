@@ -11,9 +11,6 @@ function SpecificCard(props) {
             height="300"
             alt="Hello"
         /> 
-        {/* <div className="card-name">
-          <h1>{name}</h1>
-        </div> */}
       </Link>
     </div>
   )

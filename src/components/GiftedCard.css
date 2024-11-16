@@ -1,12 +1,12 @@
 .gifted-space {
+  position: relative;
   padding-top: 20px;
 }
 
 .gifted-card-container {
   max-width: 800px;
-  margin: 20px auto;
-  perspective: 1000px; 
-  padding: 100px; 
+  margin: 0 auto;
+  padding: 100px;
 }
 
 .gifted-card {
@@ -19,7 +19,7 @@
 }
 
 .gifted-card.flipped {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 .gifted-card-front,
@@ -37,7 +37,7 @@
 
 .gifted-card-back {
   background-color: #ffffff;
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
   padding: 20px;
 }
 
@@ -58,4 +58,18 @@
   margin-top: 10px;
   text-align: justify;
   color: #666;
+}
+
+.click-to-flip-label {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #101010;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  transform-origin: bottom right;
+  pointer-events: none;
+  z-index: 10;
 }

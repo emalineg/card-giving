@@ -5,7 +5,8 @@ import './GiftedCard.css';
 function GiftedCard() {
   const { urlSlug } = useParams();
   const [card, setCard] = useState(null);
-  const [flip, setFlip] = useState(false); // State for flip functionality
+  const [flip, setFlip] = useState(false);
+  const [showLabel, setShowLabel] = useState(true);
 
   useEffect(() => {
     fetch(`https://octopus-app-xwqtk.ondigitalocean.app/api/gifted-cards/${urlSlug}`)
@@ -29,6 +30,7 @@ function GiftedCard() {
 
   const handleCardClick = () => {
     setFlip(prevFlip => !prevFlip);
+    setShowLabel(false);
   };
 
   return (
@@ -41,6 +43,7 @@ function GiftedCard() {
               src={`${process.env.PUBLIC_URL}/${card.image}`}
               alt={card.name}
             />
+            {showLabel && <div className="click-to-flip-label">Click to Flip!</div>}
           </div>
           <div className="gifted-card-back">
             <h1 className="gifted-card-title">{card.title}</h1>
@@ -53,4 +56,3 @@ function GiftedCard() {
 }
 
 export default GiftedCard;
-

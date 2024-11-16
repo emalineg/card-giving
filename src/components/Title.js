@@ -10,9 +10,6 @@ function Title() {
             <h1>CardStamp</h1>
           </Link>
         </div>
-        {/* <div className="Title-Subtitle">
-        <h2>Send a personalized virtual card!</h2>
-        </div> */}
         {/* <div className="nav-container">
           <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/">Cards</NavLink>
           <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link" } to="/about">About</NavLink>
